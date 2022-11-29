@@ -17,7 +17,19 @@ class Product
         $this->inStock = $inStock;
     }
     // TODO Skriv getters för alla properties
-    public function getProducts() {
-        return $this->id . " " . $this->title . " " . $this->price . " " . $this->inStock;
+    public function getId() {
+        return $this->id;
+    }
+
+    public function getTitle() {
+        return $this->title;
+    }
+
+    public function getPrice(){
+        return $this->price;
+    }
+
+    public function getStock(){
+        return $this->inStock;
     }
 }
