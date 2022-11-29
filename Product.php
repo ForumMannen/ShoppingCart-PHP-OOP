@@ -29,7 +29,7 @@ class Product
         return $this->price;
     }
 
-    public function getStock(){
+    public function getInStock(){
         return $this->inStock;
     }
 }

@@ -17,11 +17,20 @@ class Cart
      VG: Om produkten redan finns i kundvagnen
      skall istället quantity på cartitem ökas.
      */
-    public function addProduct($product)
-    {
-        $cartItem = new CartItem($product, 1);
-        $this-> items[$product->getId()] = $cartItem;
+    public function addProduct($product, $quantity)
+    {   
+        $productId = $product->getId();
+        if(isset($this->items[$productId])){
+            $this->items[$productId]->increaseQuantity($quantity);
+        }
+        else {
+            $cartItem = new CartItem($product, $quantity);
+            $this->items[$productId] = $cartItem;
+        }
         return $cartItem;
+        /*$cartItem = new CartItem($product, 1);
+        $this-> items[$product->getId()] = $cartItem;
+        return $cartItem;*/
     }
 
 
@@ -39,7 +48,7 @@ class Cart
         foreach($this->items as $item){
             $totalQuantity += $item->getQuantity();
         };
-        return $totalQuantity;   
+        return $totalQuantity;
     }
 
     //Skall räkna ihop totalsumman för alla produkter i kundvagnen
