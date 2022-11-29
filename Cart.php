@@ -28,9 +28,6 @@ class Cart
             $this->items[$productId] = $cartItem;
         }
         return $cartItem;
-        /*$cartItem = new CartItem($product, 1);
-        $this-> items[$product->getId()] = $cartItem;
-        return $cartItem;*/
     }
 
 
