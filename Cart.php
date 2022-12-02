@@ -21,7 +21,7 @@ class Cart
     {   
         $productId = $product->getId();
         if(isset($this->items[$productId])){
-            $this->items[$productId]->increaseQuantity($quantity);
+            $this->items[$productId]->increaseQuantity();
         }
         else {
             $cartItem = new CartItem($product, $quantity);
